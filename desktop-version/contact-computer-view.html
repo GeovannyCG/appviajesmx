@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - ViajesMX</title>
+    <!-- link de css Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Link css Propio -->
+    <link rel="stylesheet" href="../assets/css/style-main.css">
+    <!-- CSS para los icons de Boxicons
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <!-- icono web -->
+    <link rel="shortcut icon" href="../assets/images/sitio/logo-viajesmx.ico" type="image/x-icon">
+
+    <script>
+        if (!navigator.onLine) {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../desktop-version/reservations-computer-view.html";
+                }
+            });
+        }
+
+        window.addEventListener("offline", () => {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../desktop-version/reservations-computer-view.html";
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Contenido de los SVG para el sitio -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="menu-icon" viewbox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </symbol>
+
+        <symbol id="email" viewbox="0 0 16 16">
+            <path
+                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+        </symbol>
+
+        <symbol id="phone" viewbox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+        </symbol>
+
+        <symbol id="building" viewbox="0 0 16 16">
+            <path
+                d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H3Zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5Z" />
+        </symbol>
+
+        <symbol id="clock" viewbox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+        </symbol>
+    </svg>
+
+
+    <nav class="fixed-top">
+        <!-- Contenido de la izquierda -->
+        <div class="content-left">
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <svg class="bi" width="35" height="35">
+                    <use xlink:href="#menu-icon" />
+                </svg>
+            </button>
+            <img src="../assets/images/sitio/logotipo-viajesmx.png" alt="Logotipo" width="150px" height="auto">
+        </div>
+
+        <div class="bar-search">
+            <div class="input-group mb-6" style="height: 10px;">
+                <button class="btn" type="button" id="button-addon1">Buscar</button>
+                <input type="search" class="form-control" placeholder="¿Cual sera tu proximo viaje?"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1" id="buscador">
+            </div>
+        </div>
+
+
+        <!-- contenido de la derecha -->
+        <div class="content-right">
+            <div class="dropdown" style="margin-top: 5px;">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../assets/images/users/user.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                    <b><span id="nombre-usuario"></span></b>
+                </a>
+                <ul class="dropdown-menu text-small">
+                    <li id="cerrar-session"><a class="dropdown-item" href="../index.html"> <i class='bx bxs-log-in'
+                                style='color:#ff0000'></i>
+                            <span> <b>Cerrar sesion</b></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="wrapper-home">
+
+        <div class="header-wrapp-home">
+            <h1>¿Tienes alguna duda o situacion?</h1>
+            <h3>Contactanos por cualquiera de estos medios</h3>
+        </div>
+
+        <div id="message-error" style="position: absolute; margin-left: 65%;"></div>
+
+        <div class="contenedor-principal">
+            <div class="contact-container">
+
+                <div class="form-contact">
+                    <h2>Contactos</h2>
+                    <div class="contacts-container">
+                        <div class="section-contact">
+                            <svg class="bi" width="30" height="30" style="fill: white;">
+                                <use xlink:href="#email" />
+                            </svg>
+                            <h4 style="margin-top: 5px; margin-left: 10px;">viajesmx@gmail.com</h4>
+                        </div>
+
+                        <div class="section-contact">
+                            <svg class="bi" width="30" height="30" style="fill: white;">
+                                <use xlink:href="#phone" />
+                            </svg>
+                            <h4 style="margin-top: 5px; margin-left: 10px;">01-800-456-543-432</h4>
+                        </div>
+
+                        <div class="section-contact">
+                            <svg class="bi" width="30" height="30" style="fill: white;">
+                                <use xlink:href="#building" />
+                            </svg>
+                            <h4 style="margin-top: 5px; margin-left: 10px;">Villa Nicolas Romero, Mexico, cp. 54460.
+                            </h4>
+                        </div>
+
+                        <div class="section-contact">
+                            <svg class="bi" width="30" height="30" style="fill: white;">
+                                <use xlink:href="#clock" />
+                            </svg>
+                            <h4 style="margin-top: 5px; margin-left: 10px;">09:00 a.m. - 6:00 p.m.</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="medios-contects">
+                    <h2>Mensaje directo</h2>
+
+                    <div class="form">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="nombre@ejemplo.com" value="hiojan75@gmail.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Tu mensaje</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Acepto los <a href="#">Terminos y condiciones</a> de uso del formulario de contacto.
+                            </label>
+                        </div>
+                        <button type="button" class="btn" id="btnCorreo">Enviar</button>
+                    </div>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- menu lateral -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Menu</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="options-menu">
+                <a href="../desktop-version/home-computer-view.html">
+                    <li>Inicio</li>
+                </a>
+                <a href="../desktop-version/reservations-computer-view.html">
+                    <li>Reservaciones</li>
+                </a>
+                <a href="../desktop-version/contact-computer-view.html">
+                    <li>Contacto</li>
+                </a>
+            </ul>
+
+            <div id="leyenda" class="fixed-bottom">
+                <p>© 2023 SOFTMXCG. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts de Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+
+    <script src="../app.js"></script>
+
+    <!-- Script des sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

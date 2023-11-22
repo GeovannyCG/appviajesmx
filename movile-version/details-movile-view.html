@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajesMX - Inicio</title>
+    <!-- link de css Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Link css Propio -->
+    <link rel="stylesheet" href="../assets/css/styles-movil-app.css">
+    <!-- CSS para los icons de Boxicons
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+</head>
+
+<body>
+
+    <!-- SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="return" viewbox="0 0 16 16">
+            <path
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+        </symbol>
+    </svg>
+
+    <div class="contenedor-principal-mx">
+
+        <div class="header-search-app-details">
+            <a href="../movile-version/home-movile-view.html">
+                <svg class="bi" width="35" height="35" style="fill: #046cdcae;">
+                    <use xlink:href="#return" />
+                </svg>
+            </a>
+            <h3>Detalles del sitio</h3>
+        </div>
+
+        <div class="container-serach-app">
+            <div class="location-place">
+                <h2><i class='bx bxs-map'></i> <span id="nombre"></span></h2>
+                <p><i class='bx bxs-map-alt'></i> <span id="ubicacion"></span></p>
+                <p><i class='bx bxs-label'></i> <span id="clasificacion"></span></p>
+            </div>
+
+            <div class="options-site">
+                <div class="options-site">
+                    <!-- Button trigger modal -->
+                    <button type="button" id="btnReservar" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Reservar ahora
+                    </button>
+
+                    <a id="btnReportar"><i class='bx bxs-dislike'></i> Reportar</a>
+                </div>
+            </div>
+
+            <div class="information-place" style="margin-top: 30px;">
+                <h3>Informacion</h3>
+
+                <h4 style="margin-top: 20px;">Descripción</h4>
+                <p id="descripcion"></p>
+
+                <h4>Atracciones</h4>
+                <p id="atracciones"></p>
+
+                <h4>Gastronomía</h4>
+                <p id="gastronomia"></p>
+
+                <h4>Recomendaciones</h4>
+                <p id="recomendaciones"></p>
+            </div>
+
+            <div class="galery">
+                <h3>Galeria</h3><br>
+                <div class="row" style="margin-top: 8px;">
+                    <div class="col-12 col-md-4 mb-3" id="images">
+                        <img src="https://www.mexicodestinos.com/blog/wp-content/uploads/2016/09/Entrada-Real-de-Catorce-SLP-560x420.jpg"
+                            class="img-fluid rounded" alt="Imagen 1">
+                    </div>
+                    <div class="col-12 col-md-4 mb-3" id="images">
+                        <img src="https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2022/01/tunel-ogarrio-real-de-catorce.jpeg?resize=600%2C449&ssl=1"
+                            class="img-fluid rounded" alt="Imagen 2">
+                    </div>
+                    <div class="col-12 col-md-4 mb-3" id="images">
+                        <img src="https://topadventure.com/__export/1617979842910/sites/laverdad/img/2021/04/09/real_de_catorce_cajeros.jpeg_557888218.jpeg"
+                            class="img-fluid rounded" alt="Imagen 5">
+                    </div>
+                    <div class="col-12 col-md-4 mb-3" id="images">
+                        <img src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2016/12/Real-de-Catroce_Rogelio-Valdez_1200.jpg"
+                            class="img-fluid rounded" alt="Imagen 4">
+                    </div>
+                    <div class="col-12 col-md-4 mb-3" id="images">
+                        <img src="https://www.elsoldemexico.com.mx/doble-via/virales/u37b5r-peyoconchas1.jpg/ALTERNATES/FREE_768/peyoconchas1.jpg"
+                            class="img-fluid rounded" alt="Imagen 5">
+                    </div>
+                    <div class="col-12 col-md-4 mb-3" id="images">
+                        <img src="https://i.pinimg.com/736x/6a/45/aa/6a45aaf552cd84023a11447eb83dc925.jpg"
+                            class="img-fluid rounded" alt="Imagen 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Datos de reservacion</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="dias" class="form-label">Duracion de viaje:</label>
+                        <select id="dias" class="form-control">
+                            <option value="Selecciona la cantidad de dias" disabled selected>Selecciona la cantidad de
+                                dias</option>
+                            <option value="1">Un dia</option>
+                            <option value="2">Dos dias</option>
+                            <option value="3">Tres dias</option>
+                            <option value="4">Cuatro dias</option>
+                            <option value="5">Cinco dias</option>
+                            <option value="6">Seis dias</option>
+                            <option value="7">Una semana</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="personas" class="form-label">Cantidad de personas:</label>
+                        <select id="personas" class="form-control">
+                            <option value="Selecciona la cantidad de dias" disabled selected>Selecciona cuantas personas
+                                iran</option>
+                            <option value="1">Una personas</option>
+                            <option value="2">Dos personas</option>
+                            <option value="3">Tres personas</option>
+                            <option value="4">Cuatro personas</option>
+                            <option value="5">Cinco personas</option>
+                            <option value="6">Seis personas</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="transporte" class="form-label">Transporte:</label>
+                        <select id="transporte" class="form-control">
+                            <option value="Selecciona la cantidad de dias" disabled selected>Selecciona un transporte
+                            </option>
+                            <option value="Autobus">Autobus</option>
+                            <option value="Avion">Avion</option>
+                            <option value="Tren">Tren</option>
+                            <option value="Barco">Barco</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="paquete" class="form-label">Paquete de viaje:</label>
+                        <select id="paquete" class="form-control">
+                            <option value="Selecciona la cantidad de dias" disabled selected>Selecciona un paquete de
+                                viaje</option>
+                            <option value="Basico">Basico</option>
+                            <option value="Estandar">Estandar</option>
+                            <option value="Deluxe">Deluxe</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="agendar" class="btn btn-primary">Agendar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts de Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+
+    <!-- CDN de sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        if (!navigator.onLine) {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../movile-version/reservations-movil-view.html";
+                }
+            });
+        }
+
+        window.addEventListener("offline", () => {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../movile-version/reservations-movil-view.html";
+                }
+            });
+        });
+    </script>
+
+    <!-- Modulo de FireBase -->
+    <script type="module">
+        //Script dado por el SDK de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, doc, setDoc, getDocs, query, where, getDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDt4o-uvGTqqwABAcNW8opH4iyA82B0blE",
+            authDomain: "viajesmx-f07c8.firebaseapp.com",
+            projectId: "viajesmx-f07c8",
+            storageBucket: "viajesmx-f07c8.appspot.com",
+            messagingSenderId: "437734415626",
+            appId: "1:437734415626:web:821aaf367d26a5974aeef3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const firestore = getFirestore(app);
+
+        //Persistencia de la base de datos
+
+        //SCRIPT PROPIO******
+        //dom's
+        let btnReportar = document.getElementById("btnReportar");
+        let btnReservar = document.getElementById("btnReservar");
+
+        btnReportar.addEventListener("click", () => {
+            Swal.fire({
+                icon: "error",
+                title: "Reportar",
+                text: "Lamentamos que sea asi, llama a este numero: 9035275139 para realizar el reporte.",
+            });
+        });
+
+        window.addEventListener("offline", () => {
+            btnReservar.disabled = true;
+
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../movile-version/reservations-movil-view.html";
+                }
+            });
+        });
+
+        window.addEventListener("online", () => {
+            btnReservar.disabled = false;
+        });
+
+        //Implementacion de la funcion de agendar viaje
+        document.getElementById("agendar").addEventListener("click", () => {
+
+            window.addEventListener("online", () => {
+                Swal.fire({
+                    title: "¿Deseas agendar el viaje?",
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    CancelButtonText: "Cancelar",
+                    confirmButtonText: "Agendar",
+                    denyButtonText: `No agendar`
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        //Obtencion de la informacion del formulario
+                        let duracionv = document.getElementById("dias");
+                        let personasv = document.getElementById("personas");
+                        let transportev = document.getElementById("transporte");
+                        let paquetev = document.getElementById("paquete");
+
+                        //Obtencion del id del documento:
+                        const parametros = new URLSearchParams(window.location.search);
+                        const idDocumento = parametros.get('id');
+
+                        //Determinar el precio del viaje
+                        const precios = [
+                            "$15,000.00 MX",
+                            "$12,500.00 MX",
+                            "$18,750.00 MX",
+                            "$13,200.00 MX",
+                            "$16,800.00 MX",
+                            "$14,750.00 MX",
+                            "$17,300.00 MX",
+                            "$11,900.00 MX",
+                            "$10,500.00 MX",
+                            "$19,600.00 MX"
+                        ];
+
+                        const numeroAleatorio = Math.floor(Math.random() * 10);
+
+                        //query para obtener los datos faltantes para la reservacion de cliente
+                        const docConsulta = doc(firestore, "lugares", idDocumento);
+
+                        getDoc(docConsulta)
+                            .then((docSnapshot) => {
+                                if (docSnapshot.exists()) {
+                                    const data = docSnapshot.data();
+
+                                    console.log(data.nombre);
+                                    console.log(precios[numeroAleatorio]);
+                                    console.log(duracionv.value);
+                                    console.log(personasv.value);
+                                    console.log(transportev.value);
+                                    console.log(paquetev.value);
+                                    console.log("pendiente");
+                                    console.log(data.imagen);
+                                    console.log(idDocumento);
+                                    console.log(localStorage.getItem("session"));
+
+                                    const dataCollection = collection(firestore, 'reservaciones');
+
+                                    const newData = {
+                                        nombre: data.nombre,
+                                        precio: precios[numeroAleatorio],
+                                        duracion: duracionv.value,
+                                        numpersonas: personasv.value,
+                                        transporte: transportev.value,
+                                        paquete: paquetev.value,
+                                        estadoviaje: "pendiente",
+                                        imagen: data.imagen,
+                                        idlugar: idDocumento,
+                                        idusuario: localStorage.getItem("session")
+                                    }
+
+                                    // Realizar la inserción de los datos en la colección
+                                    addDoc(dataCollection, newData)
+                                        .then((docRef) => {
+                                            location.href = "../movile-version/reservations-movil-view.html";
+                                        })
+                                        .catch((error) => {
+                                            console.error('Error al insertar los datos: ', error);
+                                            Swal.fire({
+                                                icon: "Error",
+                                                title: "Oops...",
+                                                text: "Algo salio mal!",
+                                            });
+                                        });
+                                }
+                            })
+                            .catch((error) => {
+                                console.error("Error al obtener el documento:", error);
+                            });
+                    } else if (result.isDenied) {
+                        Swal.fire("Agendacion cancelada", "", "info");
+                    }
+                });
+            });
+
+            window.addEventListener("offline", () => {
+                Swal.fire({
+                    icon: "Error",
+                    title: "Oops...",
+                    text: "No puedes agendar un viaje en modo offline.",
+                });
+            });
+        });
+
+        //Creacion de la informacion segun que sitio se eligio
+        function cargarInformacion(id) {
+            //DOM's
+            const nombre = document.getElementById("nombre");
+            const ubicacion = document.getElementById("ubicacion");
+            const clasificacion = document.getElementById("clasificacion");
+            const descripcion = document.getElementById("descripcion");
+            const atracciones = document.getElementById("atracciones");
+            const gastronomia = document.getElementById("gastronomia");
+            const recomendaciones = document.getElementById("recomendaciones");
+
+            // Referencia al documento con el ID especificado
+            const docRef = doc(firestore, 'lugares', id);
+
+            getDoc(docRef)
+                .then((docSnapshot) => {
+                    if (docSnapshot.exists()) {
+                        const data = docSnapshot.data();
+
+                        nombre.textContent = data.nombre;
+                        ubicacion.textContent = data.ubicacion;
+                        clasificacion.textContent = data.clasifacion;
+                        descripcion.textContent = data.descripcion;
+                        atracciones.textContent = data.atracciones;
+                        gastronomia.textContent = data.gastronomia;
+                        recomendaciones.textContent = data.recomendaciones;
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error al obtener el documento:", error);
+                });
+        }
+
+        //Ejecucion principal!
+
+        //Obtencion del ID de documento en cuestion
+        const urlParams = new URLSearchParams(window.location.search);
+        const documentoId = urlParams.get('id');
+
+        //Se invoca el metodo para mostrar la informacion en la interfaz
+        cargarInformacion(documentoId);
+
+    </script>
+</body>
+
+</html>
