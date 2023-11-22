@@ -12,6 +12,34 @@
     <link rel="stylesheet" href="../assets/css/styles-movil-app.css">
     <!-- CSS para los icons de Boxicons
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <script>
+        if (!navigator.onLine) {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../movile-version/reservations-movil-view.html";
+                }
+            });
+        }
+
+        window.addEventListener("offline", () => {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../movile-version/reservations-movil-view.html";
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -183,34 +211,6 @@
     <!-- CDN de sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        if (!navigator.onLine) {
-            Swal.fire({
-                icon: "warning",
-                title: "Offline",
-                text: "Esta pagina no esta disponible en modo offline",
-                confirmButtonText: "Mis reservaciones",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    location.href = "../movile-version/reservations-movil-view.html";
-                }
-            });
-        }
-
-        window.addEventListener("offline", () => {
-            Swal.fire({
-                icon: "warning",
-                title: "Offline",
-                text: "Esta pagina no esta disponible en modo offline",
-                confirmButtonText: "Mis reservaciones",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    location.href = "../movile-version/reservations-movil-view.html";
-                }
-            });
-        });
-    </script>
-
     <!-- Modulo de FireBase -->
     <script type="module">
         //Script dado por el SDK de Firebase
@@ -244,129 +244,118 @@
             });
         });
 
-        window.addEventListener("offline", () => {
-            btnReservar.disabled = true;
+        // window.addEventListener("offline", () => {
+        //     btnReservar.disabled = true;
 
-            Swal.fire({
-                icon: "warning",
-                title: "Offline",
-                text: "Esta pagina no esta disponible en modo offline",
-                confirmButtonText: "Mis reservaciones",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    location.href = "../movile-version/reservations-movil-view.html";
-                }
-            });
-        });
+        //     Swal.fire({
+        //         icon: "warning",
+        //         title: "Offline",
+        //         text: "Esta pagina no esta disponible en modo offline",
+        //         confirmButtonText: "Mis reservaciones",
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             location.href = "../movile-version/reservations-movil-view.html";
+        //         }
+        //     });
+        // });
 
-        window.addEventListener("online", () => {
-            btnReservar.disabled = false;
-        });
+        // window.addEventListener("online", () => {
+        //     btnReservar.disabled = false;
+        // });
 
         //Implementacion de la funcion de agendar viaje
         document.getElementById("agendar").addEventListener("click", () => {
+            Swal.fire({
+                title: "¿Deseas agendar el viaje?",
+                showDenyButton: true,
+                showCancelButton: true,
+                CancelButtonText: "Cancelar",
+                confirmButtonText: "Agendar",
+                denyButtonText: `No agendar`
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    //Obtencion de la informacion del formulario
+                    let duracionv = document.getElementById("dias");
+                    let personasv = document.getElementById("personas");
+                    let transportev = document.getElementById("transporte");
+                    let paquetev = document.getElementById("paquete");
 
-            window.addEventListener("online", () => {
-                Swal.fire({
-                    title: "¿Deseas agendar el viaje?",
-                    showDenyButton: true,
-                    showCancelButton: true,
-                    CancelButtonText: "Cancelar",
-                    confirmButtonText: "Agendar",
-                    denyButtonText: `No agendar`
-                }).then((result) => {
-                    /* Read more about isConfirmed, isDenied below */
-                    if (result.isConfirmed) {
-                        //Obtencion de la informacion del formulario
-                        let duracionv = document.getElementById("dias");
-                        let personasv = document.getElementById("personas");
-                        let transportev = document.getElementById("transporte");
-                        let paquetev = document.getElementById("paquete");
+                    //Obtencion del id del documento:
+                    const parametros = new URLSearchParams(window.location.search);
+                    const idDocumento = parametros.get('id');
 
-                        //Obtencion del id del documento:
-                        const parametros = new URLSearchParams(window.location.search);
-                        const idDocumento = parametros.get('id');
+                    //Determinar el precio del viaje
+                    const precios = [
+                        "$15,000.00 MX",
+                        "$12,500.00 MX",
+                        "$18,750.00 MX",
+                        "$13,200.00 MX",
+                        "$16,800.00 MX",
+                        "$14,750.00 MX",
+                        "$17,300.00 MX",
+                        "$11,900.00 MX",
+                        "$10,500.00 MX",
+                        "$19,600.00 MX"
+                    ];
 
-                        //Determinar el precio del viaje
-                        const precios = [
-                            "$15,000.00 MX",
-                            "$12,500.00 MX",
-                            "$18,750.00 MX",
-                            "$13,200.00 MX",
-                            "$16,800.00 MX",
-                            "$14,750.00 MX",
-                            "$17,300.00 MX",
-                            "$11,900.00 MX",
-                            "$10,500.00 MX",
-                            "$19,600.00 MX"
-                        ];
+                    const numeroAleatorio = Math.floor(Math.random() * 10);
 
-                        const numeroAleatorio = Math.floor(Math.random() * 10);
+                    //query para obtener los datos faltantes para la reservacion de cliente
+                    const docConsulta = doc(firestore, "lugares", idDocumento);
 
-                        //query para obtener los datos faltantes para la reservacion de cliente
-                        const docConsulta = doc(firestore, "lugares", idDocumento);
+                    getDoc(docConsulta)
+                        .then((docSnapshot) => {
+                            if (docSnapshot.exists()) {
+                                const data = docSnapshot.data();
 
-                        getDoc(docConsulta)
-                            .then((docSnapshot) => {
-                                if (docSnapshot.exists()) {
-                                    const data = docSnapshot.data();
+                                console.log(data.nombre);
+                                console.log(precios[numeroAleatorio]);
+                                console.log(duracionv.value);
+                                console.log(personasv.value);
+                                console.log(transportev.value);
+                                console.log(paquetev.value);
+                                console.log("pendiente");
+                                console.log(data.imagen);
+                                console.log(idDocumento);
+                                console.log(localStorage.getItem("session"));
 
-                                    console.log(data.nombre);
-                                    console.log(precios[numeroAleatorio]);
-                                    console.log(duracionv.value);
-                                    console.log(personasv.value);
-                                    console.log(transportev.value);
-                                    console.log(paquetev.value);
-                                    console.log("pendiente");
-                                    console.log(data.imagen);
-                                    console.log(idDocumento);
-                                    console.log(localStorage.getItem("session"));
+                                const dataCollection = collection(firestore, 'reservaciones');
 
-                                    const dataCollection = collection(firestore, 'reservaciones');
-
-                                    const newData = {
-                                        nombre: data.nombre,
-                                        precio: precios[numeroAleatorio],
-                                        duracion: duracionv.value,
-                                        numpersonas: personasv.value,
-                                        transporte: transportev.value,
-                                        paquete: paquetev.value,
-                                        estadoviaje: "pendiente",
-                                        imagen: data.imagen,
-                                        idlugar: idDocumento,
-                                        idusuario: localStorage.getItem("session")
-                                    }
-
-                                    // Realizar la inserción de los datos en la colección
-                                    addDoc(dataCollection, newData)
-                                        .then((docRef) => {
-                                            location.href = "../movile-version/reservations-movil-view.html";
-                                        })
-                                        .catch((error) => {
-                                            console.error('Error al insertar los datos: ', error);
-                                            Swal.fire({
-                                                icon: "Error",
-                                                title: "Oops...",
-                                                text: "Algo salio mal!",
-                                            });
-                                        });
+                                const newData = {
+                                    nombre: data.nombre,
+                                    precio: precios[numeroAleatorio],
+                                    duracion: duracionv.value,
+                                    numpersonas: personasv.value,
+                                    transporte: transportev.value,
+                                    paquete: paquetev.value,
+                                    estadoviaje: "pendiente",
+                                    imagen: data.imagen,
+                                    idlugar: idDocumento,
+                                    idusuario: localStorage.getItem("session")
                                 }
-                            })
-                            .catch((error) => {
-                                console.error("Error al obtener el documento:", error);
-                            });
-                    } else if (result.isDenied) {
-                        Swal.fire("Agendacion cancelada", "", "info");
-                    }
-                });
-            });
 
-            window.addEventListener("offline", () => {
-                Swal.fire({
-                    icon: "Error",
-                    title: "Oops...",
-                    text: "No puedes agendar un viaje en modo offline.",
-                });
+                                // Realizar la inserción de los datos en la colección
+                                addDoc(dataCollection, newData)
+                                    .then((docRef) => {
+                                        location.href = "../movile-version/reservations-movil-view.html";
+                                    })
+                                    .catch((error) => {
+                                        console.error('Error al insertar los datos: ', error);
+                                        Swal.fire({
+                                            icon: "Error",
+                                            title: "Oops...",
+                                            text: "Algo salio mal!",
+                                        });
+                                    });
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error al obtener el documento:", error);
+                        });
+                } else if (result.isDenied) {
+                    Swal.fire("Agendacion cancelada", "", "info");
+                }
             });
         });
 
