@@ -1,0 +1,487 @@
+.contenedor-principal-mx {
+    width: 100%;
+    height: 100vh;
+    padding: 10px 10px;
+}
+
+.contenedor-principal {
+    width: 100%;
+    height: 100%;
+}
+
+#nav-bottom {
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    height: 45px;
+    background-color: white;
+}
+
+
+/* Estilos generales para toda la App */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos para la primera seccion (Encabezado) */
+#first-section-header {
+    padding: 20px 20px;
+    display: flex;
+    background-color: white;
+    width: 100%;
+}
+
+h5 {
+    color: rgb(196, 196, 196);
+    font-weight: 400;
+}
+
+#text-part {
+    flex: 1;
+}
+
+/* Estilos para la segunda seccion (Buscador y Opciones) */
+#second-section-header {
+    padding: 20px 20px;
+    margin-top: 10px;
+}
+
+#search-bar {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f5f5ff;
+    padding: 10px;
+}
+
+#search-bar::placeholder {
+    color: rgb(196, 196, 196);
+}
+
+.input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+#search-bar[type="text"] {
+    padding-left: 45px;
+}
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 15px; /* Ajusta la posición a tu preferencia */
+    transform: translateY(-50%);
+    width: 20px; /* Ajusta el tamaño del icono a tu preferencia */
+    height: 20px;
+    background-image: url("../svg/search.svg"); /* Ruta al archivo SVG del icono */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+
+/* Estilos para el menu inferior de la App */
+
+#icons-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+
+/* ESTILOS PARA LA TERCERA SECCION (TARJETAS) */
+
+#third-section-header {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+}
+
+.card {
+    flex: 0 0 200px;
+    margin-right: 15px;
+    background-color: #ffffff91;
+    border-radius: 5px;
+    scroll-snap-align: start;
+    padding: 10px 10px;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    border-radius: 20px;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+#separador {
+    background-color: white;
+    height: 6px;
+}
+
+#main-navbar {
+    width: 100%;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgb(198, 198, 198);
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+#main-navbar .content-left {
+    display: flex;
+    gap: 10px;
+}
+
+#main-navbar .content-left h3 {
+    margin-top: 8px;
+}
+
+#main-navbar .content-left button {
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #046cdcae;
+    display: grid;
+    place-content: center;
+}
+
+#main-navbar .content-left button svg {
+    fill: #fff;
+}
+
+#main-navbar .content-left button:hover {
+    background-color: #fff;
+    border: 1px solid #046cdcae;
+}
+
+#main-navbar .content-left button svg:hover {
+    fill: #046cdcae;
+}
+
+#main-navbar .content-right {
+    display: flex;
+    gap: 10px;
+}
+
+#main-navbar .content-right .versions {
+    border: none;
+    background-color: #046cdcae;
+    padding: 5px 5px;
+    height: 45px;
+    margin-top: 4px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Nueva version de screen */
+
+.contenedor-principal-main {
+    display: grid;
+    place-content: center;
+}
+
+.screen-movil {
+    width: 100%;
+    height: 88vh;
+    background-color: white;
+    padding: 20px 20px;
+}
+
+/* ESTILOS PARA EL HOME DE LA APP MOVIL */
+
+.bar-search {
+    width: 100%;
+}
+
+.bar-search input {
+    width: 100%;
+}
+
+#buscador {
+    background-color: #f5f5ff;
+}
+
+#buscador::placeholder {
+    color: rgb(196, 196, 196);
+}
+#button-addon14 {
+
+    border: 0.5px solid #046cdcae;
+    color: white;
+    background-color: #046cdcae;
+
+    transition: boder 0.5s ease;
+    color: boder 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+#button-addon14:hover {
+    border: 0.5px solid #046cdcae;
+    background-color: white;
+    color: #046cdcae;
+}
+
+/* ESTILOS PARA LA SECCION DE RESULLTADOS */
+
+
+/* Estilos del encabzado del apartado buscador */
+.header-search-app {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 10px 0px;
+    top: -1px;
+    backdrop-filter: blur(10px); 
+    width: 390px;
+}
+
+.header-search-app h3 {
+    color: rgb(196, 196, 196);
+    margin-left: 10px;
+    font-size: 27px;
+}
+
+.container-serach-app {
+    height: 75vh;
+    width: 370px;
+    margin-top: 70px;
+}
+
+.container-serach-app a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.screen-movil {
+    overflow: scroll;
+    overflow-y: auto;
+}
+
+.card1 {
+    background-color: #ffffff91;
+    border-radius: 5px;
+    padding: 10px 10px;
+    height: 190px;
+    width: 375px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.card1 img {
+    width: 150px;
+    height: 170px;
+    border-radius: 20px;
+}
+
+.screen-movil2 {
+    width: 100%;
+    height: 88vh;
+    background-color: white;
+    padding: 0px 20px;
+    overflow: scroll;
+}
+
+/* ESTILOS PARA EL APARTADO DETAILS */
+/* Estilos del encabezado */
+.header-search-app-details {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 10px 0px;
+    top: -1px;
+    backdrop-filter: blur(10px); 
+    width: 390px;
+}
+
+.header-search-app-details h3 {
+    color: rgb(196, 196, 196);
+    margin-left: 10px;
+    font-size: 27px;
+}
+
+
+.container-serach-app .options-site #btnReservar {
+    background-color: #046cdc;
+    transition: background-color 0.5s ease;
+}
+
+.container-serach-app .options-site #btnReservar:hover {
+    background-color: white;
+    color: #046cdc;
+    border: 0.5px solid #046cdc;
+    box-shadow: 2px 2px 4px #046cdca1;
+}
+.container-serach-app .options-site #btnReportar {
+    background-color: #dc044c;
+    transition: background-color 0.5s ease;
+}
+
+.container-serach-app .options-site #btnReportar:hover {
+    background-color: white;
+    color: #dc044c;
+    border: 0.5px solid #dc044c;
+    box-shadow: 2px 2px 4px #dc044ca1;
+}
+
+.container-serach-app .options-site a {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    margin-right: 15px;
+    transition: color 0.5s ease;
+}
+
+.container-serach-app .options-site {
+    margin-top: 25px;
+}
+
+.container-serach-app .information-place {
+    margin-top: 20px;
+}
+
+.screen-movil2r h2, h3, h4 {
+    color: #046cdcae;
+}
+
+.galery {
+    padding: 0px 0px;
+    margin-top: 30px;
+}
+
+#images img {
+    transition: transform 0.5s;
+}
+
+#images img:hover {
+    transform: scale(1.09);
+}
+
+/* ESTILOS PARA EL APARTADO DE MIS VIAJES */
+.contenedor-app {
+    display: grid;
+    place-content: center;
+}
+
+.screen-movil-app {
+    width: 390px;
+    height: 100vh;
+    background-color: white;
+}
+
+/* NUEVOS ESTILOS PARA LAS VENTANAS */
+
+.header-app-win {
+    margin-top: 80px;
+    padding: 10px 10px;
+    backdrop-filter: blur(10px); 
+    position: absolute;
+}
+
+.content-app-win {
+    padding: 20px 20px;
+    overflow: scroll;
+    height:460px;
+    margin-top: 100px;
+}
+
+.footer-app-win {
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.363);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 17px 35px;
+    margin-top: -45px;
+    background-color: white;
+}
+
+#idmargen-imagen {
+    width: 350px;
+    height: 240px;
+}
+
+.btns-informations {
+    display: flex;
+    justify-content: end;
+}
+
+.btns-informations #btnContactar {
+    text-decoration: none;
+    padding: 10px 10px;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #04dc89;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+}
+
+.btns-informations #btnContactar:hover {
+    color: #04dc89;
+    background-color: white;
+    border: 0.5px solid #04dc89;
+}
+
+.btns-informations #btnReportar {
+    text-decoration: none;
+    padding: 10px 10px;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #dc0404;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+}
+
+.btns-informations #btnReportar:hover {
+    color: #dc0404;
+    background-color: white;
+    border: 0.5px solid #dc0404;
+}
+
+
+#imagen-app-p {
+    height: 220px;
+}
+
+/* ESTILOS PARA EL APARTADO DE CONTACTO */
+
+.message-error {
+    width: 360px;
+    height: auto;
+}
+
+.form-contact-app {
+    margin-top: 5px;
+    width: 90%;
+    height: 100px;
+}
+
+.card-row a {
+    text-decoration: none;
+}
+
+.card-row .card {
+    width: 200px;
+}

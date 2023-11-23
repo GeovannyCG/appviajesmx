@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones - ViajesMX</title>
+    <!-- link de css Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Link css Propio -->
+    <link rel="stylesheet" href="../assets/css/style-main.css">
+    <!-- CSS para los icons de Boxicons
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <!-- icono web -->
+    <link rel="shortcut icon" href="../assets/images/sitio/logo-viajesmx.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Contenido de los SVG para el sitio -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="menu-icon" viewbox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </symbol>
+    </svg>
+
+
+    <nav class="fixed-top">
+        <!-- Contenido de la izquierda -->
+        <div class="content-left">
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <svg class="bi" width="35" height="35">
+                    <use xlink:href="#menu-icon" />
+                </svg>
+            </button>
+            <img src="../assets/images/sitio/logotipo-viajesmx.png" alt="Logotipo" width="150px" height="auto">
+        </div>
+
+        <div class="bar-search">
+            <div class="input-group mb-6" style="height: 10px;">
+                <button class="btn" type="button" id="button-addon1">Buscar</button>
+                <input type="search" class="form-control" placeholder="¿Cual sera tu proximo viaje?"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1" id="buscador">
+            </div>
+        </div>
+
+        <!-- contenido de la derecha -->
+        <div class="content-right">
+
+            <div class="dropdown" style="margin-top: 5px;">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../assets/images/users/user.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                    <b><span id="nombre-usuario"></span></b>
+                </a>
+                <ul class="dropdown-menu text-small">
+                    <li id="cerrar-session"><a class="dropdown-item" href="../index.html"> <i class='bx bxs-log-in'
+                                style='color:#ff0000'></i>
+                            <span> <b>Cerrar sesion</b></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="wrapper-home">
+        <div class="header-wrapp-home">
+            <h1>Reservaciones</h1>
+        </div>
+
+        <div class="body-wrapper-reservations">
+
+            <div class="subtuitle-reservations">
+                <h4>Resumen de tus reservaciones recientes</h4>
+
+                <div>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#second2">Historial de reservaciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-dates" style="margin-top: 20px;">
+
+                <div class="title-section-travels">
+                    <h5>Reservaciones activas</h5>
+                </div>
+                <div class="travels-hending" id="first1"></div>
+
+                <div class="title-section-travels">
+                    <h5>Historial de reservaciones</h5>
+                </div>
+                <div class="travels-history" id="second2"></div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- menu lateral -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Menu</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="options-menu">
+                <a id="btnInicio" href="../desktop-version/home-computer-view.html">
+                    <li>Inicio</li>
+                </a>
+                <a href="../desktop-version/reservations-computer-view.html">
+                    <li>Reservaciones</li>
+                </a>
+                <a id="btnContacto" href="../desktop-version/contact-computer-view.html">
+                    <li>Contacto</li>
+                </a>
+            </ul>
+
+            <div id="leyenda" class="fixed-bottom">
+                <p>© 2023 SOFTMXCG. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts de Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+
+    <!-- script para las versiones -->
+
+    <!-- Script des sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../app.js"></script>
+
+    <script>
+        //Obtencion de los dom's de los links
+        let inicio = document.getElementById("btnInicio");
+        let contacto = document.getElementById("btnContacto");
+
+        if (!navigator.onLine) { 
+            inicio.removeAttribute("href");
+            contacto.removeAttribute("href");
+        } else {
+            inicio.setAttribute("href", "../desktop-version/home-computer-view.html");
+            contacto.setAttribute("href", "../desktop-version/contact-computer-view.html");
+        }
+
+        window.addEventListener("offline", () => {
+            inicio.removeAttribute("href");
+            contacto.removeAttribute("href");
+        });
+
+        window.addEventListener("online", () => {
+            inicio.setAttribute("href", "../desktop-version/home-computer-view.html");
+            contacto.setAttribute("href", "../desktop-version/contact-computer-view.html");
+        });
+    </script>
+
+    <!-- Script de Firebase -->
+    <script type="module">
+        // Importar Firebase y Firestore
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getFirestore, enableIndexedDbPersistence, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDt4o-uvGTqqwABAcNW8opH4iyA82B0blE",
+            authDomain: "viajesmx-f07c8.firebaseapp.com",
+            projectId: "viajesmx-f07c8",
+            storageBucket: "viajesmx-f07c8.appspot.com",
+            messagingSenderId: "437734415626",
+            appId: "1:437734415626:web:821aaf367d26a5974aeef3"
+        };
+
+        // Inicialización de Firebase y Firestore con persistencia habilitada
+        const app = initializeApp(firebaseConfig);
+        const firestore = getFirestore(app);
+
+        // Habilitar persistencia
+        enableIndexedDbPersistence(firestore)
+            .then(() => {
+                console.log("Persistencia de Firestore activada");
+            })
+            .catch((err) => {
+                if (err.code === 'failed-precondition') {
+                    // Multiple tabs open, persistence can only be enabled
+                    // in one tab at a a time.
+                    console.error('Multiple tabs open, persistence can only be enabled in one tab at a time.');
+                } else if (err.code === 'unimplemented') {
+                    // The current browser does not support all of the
+                    // features required to enable persistence
+                    console.error('The current browser does not support all of the features required to enable persistence.');
+                }
+            });
+
+
+        const collectionRef = collection(firestore, "reservaciones");
+
+        //SCRIPT PROPIO******
+        //dom's
+        const seccion1 = document.getElementById("first1");
+        const seccion2 = document.getElementById("second2");
+
+        //Funcion para crear las tarjetas de los viajes en curso
+        function crearTarjetaVC(imagen, nombre, precio, duracion, numpersonas, transporte, paquete) {
+            const contenedor = document.createElement("div");
+            contenedor.classList.add("cards-section-travels");
+
+            const ilustracion = document.createElement("img");
+            ilustracion.classList.add("images-travels");
+            ilustracion.src = '../assets/images/places/' + imagen;
+            ilustracion.alt = nombre;
+
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("informations-travels");
+            const titulo1 = document.createElement("h3");
+            titulo1.textContent = nombre;
+            const titulo2 = document.createElement("h3");
+            titulo2.classList.add("sub");
+
+            //Wrapper Ul
+            const lista = document.createElement("ul");
+            const preciol = document.createElement("li");
+            preciol.textContent = "Precio del viaje: " + precio;
+            const duracionl = document.createElement("li");
+            duracionl.textContent = "Duracion del viaje: " + duracion;
+            const personasl = document.createElement("li");
+            personasl.textContent = "Personas en el vaije: " + numpersonas;
+            const transportel = document.createElement("li");
+            transportel.textContent = "Transporte elegido: " + transporte;
+            const paquetel = document.createElement("li");
+            paquetel.textContent = "Paquete de viaje: " + paquete;
+
+            //Footer
+            const footer = document.createElement("div");
+            footer.classList.add("btns-informations");
+            //links de footer
+            const like = document.createElement("button");
+            like.id = "btnContactar";
+            like.setAttribute("style", "color: white;");
+            like.textContent = " Contactar a la agencia";
+            like.addEventListener("click", () => {
+                Swal.fire({
+                    icon: "info",
+                    title: "Contactar",
+                    text: "Para darte una mayor atencion llama a este numero: 6678241087.",
+                });
+            });
+
+            const reportar = document.createElement("button");
+            reportar.id = "btnReportar";
+            reportar.setAttribute("style", "color: white;");
+            reportar.textContent = " Reportar";
+            reportar.addEventListener("click", () => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Reportar",
+                    text: "Lamentamos que sea asi, llama a este numero: 9035275139 para realizar el reporte.",
+                });
+            });
+
+            //Adjuntar elementos al contenedor
+            contenedor.appendChild(ilustracion);
+            contenedor.appendChild(wrapper);
+
+            wrapper.appendChild(titulo1);
+            wrapper.appendChild(titulo2);
+            wrapper.appendChild(lista);
+
+            lista.appendChild(preciol);
+            lista.appendChild(duracionl);
+            lista.appendChild(personasl);
+            lista.appendChild(transportel);
+            lista.appendChild(paquetel);
+
+            wrapper.appendChild(footer);
+
+            footer.appendChild(like);
+            footer.appendChild(reportar);
+
+            return contenedor;
+        }
+
+        //Funcion para crear las tarejtas de los viajes concluidos
+
+        function crearTarjetaC(imagen, nombre, precio, duracion, numpersonas, transporte, paquete) {
+            const contenedor1 = document.createElement("div");
+            contenedor1.classList.add("cards-section-travels");
+
+            const ilustracion1 = document.createElement("img");
+            ilustracion1.classList.add("images-travels");
+            ilustracion1.src = '../assets/images/places/' + imagen;
+            ilustracion1.alt = nombre;
+
+            const wrapper1 = document.createElement("div");
+            wrapper1.classList.add("informations-travels");
+            const titulo11 = document.createElement("h3");
+            titulo11.textContent = nombre;
+            const titulo21 = document.createElement("h3");
+            titulo21.classList.add("sub");
+
+            //Wrapper Ul
+            const lista1 = document.createElement("ul");
+            const preciol1 = document.createElement("li");
+            preciol1.textContent = "Precio del viaje: " + precio;
+            const duracionl1 = document.createElement("li");
+            duracionl1.textContent = "Duracion del viaje: " + duracion;
+            const personasl1 = document.createElement("li");
+            personasl1.textContent = "Personas en el vaije: " + numpersonas;
+            const transportel1 = document.createElement("li");
+            transportel1.textContent = "Transporte elegido: " + transporte;
+            const paquetel1 = document.createElement("li");
+            paquetel1.textContent = "Paquete de viaje: " + paquete;
+
+            //Footer
+            const footer1 = document.createElement("div");
+            footer1.classList.add("btns-informations");
+            //links de footer
+            const like1 = document.createElement("button");
+            like1.id = "btnContactar";
+            like1.setAttribute("style", "color: white;");
+            like1.textContent = "Me gusto";
+            like1.addEventListener("click", () => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Te gusto este viaje",
+                    text: "Gracias por tus comentarios, nos ayudan a mejorar.",
+                });
+            });
+
+            //Adjuntar elementos al contenedor
+            contenedor1.appendChild(ilustracion1);
+            contenedor1.appendChild(wrapper1);
+
+            wrapper1.appendChild(titulo11);
+            wrapper1.appendChild(titulo21);
+            wrapper1.appendChild(lista1);
+
+            lista1.appendChild(preciol1);
+            lista1.appendChild(duracionl1);
+            lista1.appendChild(personasl1);
+            lista1.appendChild(transportel1);
+            lista1.appendChild(paquetel1);
+
+            wrapper1.appendChild(footer1);
+
+            footer1.appendChild(like1);
+
+            return contenedor1;
+        }
+
+
+        // Funciones para mostrar viajes (actualizado para manejar datos offline)
+        function viajesCurso(usuario) {
+            const query1 = query(collectionRef, where("idusuario", "==", usuario), where("estadoviaje", "==", "pendiente"));
+            getDocs(query1)
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc1) => {
+                        const data1 = doc1.data();
+                        const tarjeta = crearTarjetaVC(data1.imagen, data1.nombre, data1.precio, data1.duracion, data1.numpersonas, data1.transporte, data1.paquete);
+                        seccion1.appendChild(tarjeta);
+                    });
+                }).catch((err) => {
+                    console.error('Error al realizar la consulta: ' + err);
+                });
+        }
+
+        function viajesConcluidos(usuario) {
+            const query2 = query(collectionRef, where("idusuario", "==", usuario), where("estadoviaje", "==", "completado"));
+            getDocs(query2)
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc2) => {
+                        const data2 = doc2.data();
+                        const tarjeta1 = crearTarjetaC(data2.imagen, data2.nombre, data2.precio, data2.duracion, data2.numpersonas, data2.transporte, data2.paquete);
+                        seccion2.appendChild(tarjeta1);
+                    });
+                }).catch((err) => {
+                    console.error('Error al realizar la consulta: ' + err);
+                });
+        }
+
+        // Ejecutar las funciones
+        viajesCurso(localStorage.getItem("session")); // Cambiar por nombre de usuario logeado
+        viajesConcluidos(localStorage.getItem("session")); // Cambiar por nombre de usuario logeado
+    </script>
+
+</body>
+
+</html>

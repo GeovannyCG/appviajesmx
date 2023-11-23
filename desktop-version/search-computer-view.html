@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de busqueda - ViajesMX</title>
+    <!-- link de css Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Link css Propio -->
+    <link rel="stylesheet" href="../assets/css/style-main.css">
+    <!-- CSS para los icons de Boxicons
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <!-- icono web -->
+    <link rel="shortcut icon" href="../assets/images/sitio/logo-viajesmx.ico" type="image/x-icon">
+    
+</head>
+
+<body>
+    <!-- Contenido de los SVG para el sitio -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="menu-icon" viewbox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </symbol>
+    </svg>
+
+
+    <nav class="fixed-top">
+        <!-- Contenido de la izquierda -->
+        <div class="content-left">
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <svg class="bi" width="35" height="35">
+                    <use xlink:href="#menu-icon" />
+                </svg>
+            </button>
+            <img src="../assets/images/sitio/logotipo-viajesmx.png" alt="Logotipo" width="150px" height="auto">
+        </div>
+
+        <div class="bar-search">
+            <div class="input-group mb-6" style="height: 10px;">
+                <button class="btn" type="button" id="button-addon1">Buscar</button>
+                <input type="search" class="form-control" placeholder="¿Cual sera tu proximo viaje?"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1" id="buscador">
+            </div>
+        </div>
+
+        <!-- contenido de la derecha -->
+        <div class="content-right">
+
+            <div class="dropdown" style="margin-top: 5px;">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../assets/images/users/user.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                    <b><span id="nombre-usuario"></span></b>
+                </a>
+                <ul class="dropdown-menu text-small">
+                    <li id="cerrar-session"><a class="dropdown-item" href="../index.html"> <i class='bx bxs-log-in'
+                                style='color:#ff0000'></i>
+                            <span> <b>Cerrar sesion</b></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="wrapper-home">
+        <div class="header-wrapp-home">
+            <h1>Seguro que aqui encuentras lo que buscas</h1>
+            <h3>Resultados para la busqueda: "busqueda".</h3>
+        </div>
+
+        <div class="content-wrapper-home">
+            <div class="content-wrapper-home">
+                <div class="destinos-sections">
+                    <div class="cards">
+
+                        <div class="row" id="lienzo-busqueda"></div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- menu lateral -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Menu</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="options-menu">
+                <a href="../desktop-version/home-computer-view.html">
+                    <li>Inicio</li>
+                </a>
+                <a href="../desktop-version/reservations-computer-view.html">
+                    <li>Reservaciones</li>
+                </a>
+                <a href="../desktop-version/contact-computer-view.html">
+                    <li>Contacto</li>
+                </a>
+            </ul>
+
+            <div id="leyenda" class="fixed-bottom">
+                <p>© 2023 SOFTMXCG. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts de Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+
+    <script src="../app.js"></script>
+
+    <!-- Script des sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        if (!navigator.onLine) {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../desktop-version/reservations-computer-view.html";
+                }
+            });
+        }
+
+        window.addEventListener("offline", () => {
+            Swal.fire({
+                icon: "warning",
+                title: "Offline",
+                text: "Esta pagina no esta disponible en modo offline",
+                confirmButtonText: "Mis reservaciones",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "../desktop-version/reservations-computer-view.html";
+                }
+            });
+        });
+    </script>
+
+    <!-- Script modular para firebase-firestore  -->
+
+    <script type="module">
+        //Script dado por el SDK de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, doc, setDoc, getDocs, query, where, getDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDt4o-uvGTqqwABAcNW8opH4iyA82B0blE",
+            authDomain: "viajesmx-f07c8.firebaseapp.com",
+            projectId: "viajesmx-f07c8",
+            storageBucket: "viajesmx-f07c8.appspot.com",
+            messagingSenderId: "437734415626",
+            appId: "1:437734415626:web:821aaf367d26a5974aeef3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const firestore = getFirestore(app);
+
+        //SCRIPT PROPIO******
+
+        //dom's
+        let mainContainer = document.getElementById("lienzo-busqueda");
+
+        //Funciones
+        //Crear las tarjetas de los sitios
+        function crearTarjetaLugar(ruta_imagen, alt_imagen, descripcion_lugar, titulo_lugar, id_lugar) {
+            // Contenedor de la tarjeta
+            const contenedor = document.createElement("div");
+            contenedor.classList.add(...["col-12", "col-md-6", "col-lg-4", "col-xl-3", "mb-3", "mb-sm-0", "nose"]);
+
+            //Tarjeta
+            const tarjeta = document.createElement("div");
+            tarjeta.classList.add("card");
+            tarjeta.setAttribute("style", "width: 18rem");
+
+            //imagen
+            const imagen = document.createElement("img");
+            imagen.classList.add("card-img-top");
+            imagen.src = '../assets/images/places/' + ruta_imagen;
+
+            //Wrapper
+            const body = document.createElement("div");
+            body.classList.add("card-body");
+
+            //Titulo
+            const titulo = document.createElement("h5");
+            titulo.classList.add("card-title");
+            titulo.textContent += titulo_lugar;
+
+            //Descripcion
+            const descripcion = document.createElement("p");
+            descripcion.classList.add("card-text");
+            descripcion.textContent += descripcion_lugar;
+
+            //saber mas
+            const link = document.createElement("a");
+            link.href = "../desktop-version/details-computer-view.html?id=" + id_lugar;
+            link.classList.add("btn");
+            link.textContent = "Saber mas";
+
+            // Adjuntar elementos al contenedor
+            contenedor.appendChild(tarjeta);
+            tarjeta.appendChild(imagen);
+            tarjeta.appendChild(body);
+            body.appendChild(titulo);
+            body.appendChild(descripcion);
+            body.appendChild(link);
+
+            return contenedor;
+        }
+
+        function cargarResultados(buscador) {
+            const coleccionLugares = collection(firestore, 'lugares');
+            const q3 = query(coleccionLugares, where("nombre", ">=", buscador), where("nombre", "<=", buscador + '\uf8ff'));
+
+            getDocs(q3)
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc5) => {
+                        const data = doc5.data();
+                        let nombre = data.nombre;
+                        let descripcion = data.descripcioncorta;
+                        let ruta = data.imagen;
+                        let id = doc5.id;
+
+                        const tarjetaElemento3 = crearTarjetaLugar(ruta, nombre, descripcion, nombre, id);
+                        mainContainer.appendChild(tarjetaElemento3);
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error al realizar la consulta: ' + error);
+                });
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const busqueda = urlParams.get('busqueda');
+
+        //Principal
+        cargarResultados(busqueda);
+
+    </script>
+
+</body>
+
+</html>
